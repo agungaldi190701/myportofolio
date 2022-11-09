@@ -587,31 +587,34 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                    <input type="text" class="form-control" id="name"
+                                        placeholder="Silahkan Masukan nama anda...">
+                                    <label for="name">Nama</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="email anda...">
+                                    <label for="email">Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" id="subject"
+                                        placeholder="Kepentingan apa....">
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message"
+                                    <textarea class="form-control" placeholder="Tinggalkan pesan disini..." id="message"
                                         style="height: 100px"></textarea>
-                                    <label for="message">Message</label>
+                                    <label for="message">Pesan </label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                                <button class="btn btn-primary py-3 px-5" type="button" onclick="sumbit()">Send
+                                    Message</button>
                             </div>
                         </div>
                     </form>
@@ -688,6 +691,47 @@
                 'success'
             )
         }
+
+        function sumbit() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var subject = document.getElementById('subject').value;
+            var message = document.getElementById('message').value;
+            if (name == "" || email == "" || subject == "" || message == "") {
+                Swal.fire(
+                    'Oops...',
+                    'Silahkan isi semua form',
+                    'error'
+                )
+            } else {
+                var walink = "https://api.whatsapp.com/send?phone=6285807290527&text=Halo%20Mas%0A%0ASaya%20*" + name + "*%0Adengan%20email%20" + email + "%0Amengirimkan%20pesan%20dengan%20subjek%20:%0A*" + subject + "*%0Adengan%20pesan%20:%0A" + message;
+
+                Swal.fire({
+                    title: 'Apakah yang anda masukan sudah yakin benar?',
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Kirim',
+                    denyButtonText: `Belum Benar`,
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        Swal.fire('Pesan Terkirim!!', '', 'success')
+                        window.open(walink, '_blank');
+
+                    } else if (result.isDenied) {
+                        Swal.fire('Oke silahkan Anda benahi terlebih dulu..', '', 'info')
+                    }
+                })
+
+            }
+
+        }
+
+
+
+
+
+
     </script>
 
 </body>
