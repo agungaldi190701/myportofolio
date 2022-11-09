@@ -31,6 +31,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- Sweet Alert CSS -->
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="51">
@@ -548,7 +550,8 @@
                     <h1 class="display-5 mb-0">My Address</h1>
                 </div>
                 <div class="col-lg-6 text-lg-end">
-                    <a class="btn btn-primary py-3 px-5" href="">Say Hello</a>
+
+                    <button class="btn btn-primary py-3 px-5" id="halo" onclick="halo()"> Say Hello </button>
                 </div>
             </div>
             <div class="row g-5">
@@ -576,11 +579,10 @@
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact
-                        form
-                        with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and
-                        you're
-                        done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <p class="mb-4">Silahkan Anda bisa Menghubungi saya dengan mengeclick icon sosial media saya /
+                        langsung mengisi form dibawah ini , maka anda akan langsung terhubung ke dalam Whatsapp saya
+                        <!-- <a href="https://htmlcodex.com/contact-form">Download Now</a>. -->
+                    </p>
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">
@@ -673,6 +675,21 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- SweetAlert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script>
+        function halo() {
+            Swal.fire(
+                'Hai.. Apakabar ?',
+                'Salam Kenal, Saya Agung Aldi Prasetya',
+                'success'
+            )
+        }
+    </script>
+
 </body>
 
 </html>
